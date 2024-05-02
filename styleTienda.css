@@ -1,0 +1,59 @@
+body{
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    flex-direction: column;
+}
+.container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.form{
+    height:150px;
+    width: 250px;
+    background-color: rgb(66, 66, 61);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px;
+    flex-direction: column;
+}
+.productos{
+    padding: 5px;
+    width: 210px;
+    display: flex;
+
+}
+.btn{
+    margin: 15px;
+
+}
+.btns{
+    flex-direction: row;
+}
+.listProducts{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+ul{
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+}
+h3{
+    color: black;
+}
+h5{
+    display: flex;
+    color: rgb(235, 229, 229);
+}
