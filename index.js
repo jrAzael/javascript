@@ -1,69 +1,54 @@
-const express = require('express'); //para momtar un servidor
-const cors = require('cors'); //para conectar los clientes al servidor
+const express = require("express")
+const cors = require("cors")
 
-const app = express();
+const app= express()
+const PORT= 3000;
 
-app.use(cors()); //para recibir datos de ips distintas a localhost
 
-app.use(express.json()); //permie leer los datos JSON
+app.use(cors())
+app.use(express.json())
+app.listen(PORT, ()=>{
+    console.log(`Servidor creado en http://localhost:${PORT}`)
+})
 
-app.listen(3000,()=>console.log("servidor creado en el puerto", 3000));
 
-/**
- * GET      LEER 
- * POST     ESCRIBIR
- * PATCH    MODIFICAR UN ATRIBUTO
- * PUT      MODIFICAR EL REGISTRO
- * DELETE   ELIMINAR 
- */
+let listTask= []
+app.get('/listTask', (req, res)=>{
+    console.log('Tareas: ', listTask)
+    if(listTask.length === 0){
+        return res.json({message: 'No hay tareas'})
+    }
+    res.json(listTask)
+})
 
-app.get("/", (req, res)=>{ //obtener datos
-res.send("<h1>hola desde Node</h1>");
-});
 
-app.get("/json", (req, res)=>{
-    res.json({mensaje:"hola con JSON"});
-
-}); 
-app.get("/suma", (req, res)=>{
+app.post('/addTask', (req, res)=>{
+    const {task,id}= req.body
+    console.log(task,id)
     
-    const datosHTML = `
-    <body>
-    <input id="num1" required class="mamalon" type="number"placeholder="numero1">
-    <input id="num2" required class="mamalon" type="number"placeholder="numero2">
-    <button class="btn btn-success mt-3 col-9">Calcular</button>
-    </body>
-    `;
-    res.send(datosHTML);
-    var numero1=document.getElementById("num1"); ;
-    var numero2=document.getElementById("num2"); ;
-    try{
-var numero1=parseFloat(req.params.numero1);
-var numero2=parseFloat(req.params.numero2);
-if (isNaN(numero1) || isNaN(numero2)){
-    res.status(500).send("los datos ingresados no son validos ");
+    if(!task){
+        res.status(400).json({message: 'No se ha enviado la tarea'})
+    }
 
-}
-    }catch(error){
-res.status(500).send("los datos ingresados no son validos ");
-}
-res.send(`la suma de ${numero1}+${numero2}=${numero1+numero2}`);
-}); 
-
-app.get("/datos/:nombre/:edad", (req, res)=>{
-   var {nombre,edad} = req.params;
-   const datosHTML = `
-   <div>
-   <h1>
-   Hola ${nombre}
-   <h1>
-   <br />
-   <p>Tu edad es: ${edad}</p>
-   <div>
-   `;
-   res.send(datosHTML);
-}); 
-/*app.post();
-app.patch();
-app.put();
-app.delete();*/
+    listTask= [...listTask, {task,id}]
+    console.log(listTask)
+    res.json({message: 'Tarea agregada', tarea: task, id: id})
+});
+app.delete('/deleteTask', (req, res)=>{
+    listTask= []
+    res.json({message: 'Tareas eliminadas'})
+});
+//editar tarea  
+app.put('/editTask/:id', (req, res)=>{
+    const {id}= req.params
+    const {task}= req.body
+    console.log(id, task)
+    listTask= listTask.map((tarea)=>{
+        if(tarea.id === id){
+            tarea.task= task
+        }
+        return tarea
+    })
+    res.json({message: 'Tarea actualizada'})
+    alert('Tarea actualizada')
+});

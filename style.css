@@ -1,16 +1,92 @@
-.container {
-    display:flex;
-    flex-direction:column;
-    width: 100vw ;
+body{
+    background-color:black;
+    font-family: Arial, sans-serif;
+    margin: 120px;
+    padding:100;
+
 }
-.center{
-    align-items: center;
-    justify-content: center;
+.background{
+    background-color: #581515;
+    padding: 30px;
+    margin: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-.card{
-    box-shadow: 0 0 10px rgba(0,0,0,0.6);
-    display:flex;
-    flex-direction: column;
-    padding: 1rem;
-    margin: 2rem;
+.container{
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
+.header{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+
+}
+.form{
+    background-color: #fff;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.inputs-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.btn{
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+label{
+    display: block;
+    margin-bottom: 5px;
+}
+input{
+    padding: 10px;
+    width: 80%;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.listTaks{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    background-color: azure;
+}
+table{
+    background-color: #333;
+    width: 100%;
+    border-collapse: collapse;
+}
+th, td{
+    color : #f5f3f3;
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+}
+.div1{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+.div2{
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+h4{
+    color:white;
+    text-align: center;
+}
+

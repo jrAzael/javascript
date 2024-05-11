@@ -1,15 +1,62 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Tareas</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 <body>
-    <div  class="container center" id="root">
-        
-    </div>
-    <script src="/frontend/coneccion.js"></script>
+    
+    <div class="background">
+
+        <div class="header">
+            <h1>Tareas</h1>
+        </div>
+        <div class="container">
+            <div class="inputsForm">
+                <form id="form">
+                    <label>Tarea</label>
+                    <input type="text" name="task" id="task" placeholder="Comer...">
+                    <label>Id</label>
+                    <input type="text" name="id" id="id" placeholder="uno">
+
+                    <div class="div1">
+                        <div class="div2">
+                            <button class="btn" id="addTask">Agregar tarea</button>
+                        </div>
+                        <div class="div2">
+                            <button id="deleteTaks" class="btn ">Eliminar tareas</button>
+                        </div>
+                    </div>
+                    <div class="div1">
+                    <div class="div2">
+                        <button id="editTask" class="btn ">Editar tareas</button>
+                    </div>
+                    <div class="div2">
+                    <button id="getTask" class="btn ">Eliminar tarea</button>
+                    </div>
+                </div>
+                </form>
+            </div>
+            <div class="listTask">
+                <h2>Lista de tareas</h2>
+                <table>
+                    <thead>
+                        <tr> 
+                            <th>tareas</th>
+                            <td>id</td>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="listTask">
+                    </table>
+                    
+                </div>
+            </div>
+            <h4 id="msg"></h4>
+        </div>
 </body>
+<script src="/tareas.js"></script>
 </html>
