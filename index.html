@@ -11,40 +11,32 @@
     <div class="background">
 
         <div class="header">
-            <h1>Tareas</h1>
+            <h1>Registro</h1>
         </div>
         <div class="container">
             <div class="inputsForm">
                 <form id="form">
-                    <label>Tarea</label>
-                    <input type="text" name="task" id="task" placeholder="Comer...">
-                    <label>Id</label>
-                    <input type="text" name="id" id="id" placeholder="uno">
-
+                    <label>Nombre</label>
                     <div class="div1">
-                        <div class="div2">
-                            <button class="btn" id="addTask">Agregar tarea</button>
-                        </div>
-                        <div class="div2">
-                            <button id="deleteTaks" class="btn ">Eliminar tareas</button>
-                        </div>
-                    </div>
-                    <div class="div1">
-                    <div class="div2">
-                        <button id="editTask" class="btn ">Editar tareas</button>
-                    </div>
-                    <div class="div2">
-                    <button id="getTask" class="btn ">Eliminar tarea</button>
-                    </div>
+                    <input type="text" name="task" id="nombre" placeholder="Azael...">
+                    <button class="btn" id="addNom">+</button>
                 </div>
+                    <div class="div1" >  
+                    <div class="div2">
+                            <button id="editNom" class="btn ">Editar</button>
+                        </div>
+                        <div class="div2">
+                            <button id="deletNom" class="btn ">Eliminar </button>
+                        </div>
+                    </div>
                 </form>
             </div>
             <div class="listTask">
-                <h2>Lista de tareas</h2>
+                <h2>Lista de nombres</h2>
                 <table>
                     <thead>
                         <tr> 
-                            <th>tareas</th>
+                            <th>nombre</th>
                             <td>id</td>
                         </tr>
 
@@ -58,5 +50,5 @@
             <h4 id="msg"></h4>
         </div>
 </body>
-<script src="/tareas.js"></script>
+<script src="/usuarios.js"></script>
 </html>
