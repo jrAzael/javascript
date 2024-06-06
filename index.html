@@ -1,54 +1,62 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tareas</title>
-    <link rel="stylesheet" href="/style.css">
+    <title>MOTOMAMIS MOTORS</title>
+    <style>
+        body {
+                    text-align: center;
+                    background-color: gray;
+                    background-image: url(/inicio.jpg);
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    background-position: center;
+                    height: 100vh;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+
+        }
+        h1 {
+            color: white;
+        }
+        #boton {
+            padding: 10px 20px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input {
+            padding: 10px;
+            margin: 5px;
+        }
+        #register-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
+    <h1>MOTOMAMIS MOTORS</h1>
     
-    <div class="background">
-
-        <div class="header">
-            <h1>Registro</h1>
-        </div>
-        <div class="container">
-            <div class="inputsForm">
-                <form id="form">
-                    <label>Nombre</label>
-                    <div class="div1">
-                    <input type="text" name="task" id="nombre" placeholder="Azael...">
-                    <button class="btn" id="addNom">+</button>
-                </div>
-                    <div class="div1" >  
-                    <div class="div2">
-                            <button id="editNom" class="btn ">Editar</button>
-                        </div>
-                        <div class="div2">
-                            <button id="deletNom" class="btn ">Eliminar </button>
-                        </div>
-                    </div>
-                </form>
-            </div>
-            <div class="listTask">
-                <h2>Lista de nombres</h2>
-                <table>
-                    <thead>
-                        <tr> 
-                            <th>nombre</th>
-                            <td>id</td>
-                        </tr>
-
-                    </thead>
-
-                    <tbody id="listTask">
-                    </table>
-                    
-                </div>
-            </div>
-            <h4 id="msg"></h4>
-        </div>
+    <form>
+        <h2>Registrar Usuario</h2>
+        <input type="text" placeholder="Name" id="name">
+        <input type="email" placeholder="Email" id="email">
+        <input type="password" placeholder="Password" id="password">
+        <button type="submit" id="register-button">Register</button>
+    </form>
+    <a href="/pagina2.html" id="boton">Siguiente -></a>
 </body>
-<script src="/usuarios.js"></script>
 </html>
+
+
