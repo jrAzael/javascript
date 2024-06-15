@@ -3,60 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MOTOMAMIS MOTORS</title>
-    <style>
-        body {
-                    text-align: center;
-                    background-color: gray;
-                    background-image: url(/inicio.jpg);
-                    background-repeat: no-repeat;
-                    background-size: cover;
-                    background-position: center;
-                    height: 100vh;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    align-items: center;
-
-        }
-        h1 {
-            color: white;
-        }
-        #boton {
-            padding: 10px 20px;
-            background-color: green;
-            color: white;
-            text-decoration: none;
-            border: none;
-            cursor: pointer;
-        }
-        form {
-            margin-top: 20px;
-        }
-        input {
-            padding: 10px;
-            margin: 5px;
-        }
-        #register-button {
-            background-color: blue;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-    </style>
+    <title>usuarios nuevos </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
-    <h1>MOTOMAMIS MOTORS</h1>
     
-    <form>
-        <h2>Registrar Usuario</h2>
-        <input type="text" placeholder="Name" id="name">
-        <input type="email" placeholder="Email" id="email">
-        <input type="password" placeholder="Password" id="password">
-        <button type="submit" id="register-button">Register</button>
-    </form>
-    <a href="/pagina2.html" id="boton">Siguiente -></a>
+    <div class="form-container">
+        <h1>Registro de Usuarios</h1>
+        <input type="text" id="nombre" placeholder="Nombre del usuario">
+        <button onclick="addUser()">Agregar Usuario</button>
+    </div>
+    <div id="users"></div>
+    <script src="agregar.js"></script>
 </body>
 </html>
-
-
