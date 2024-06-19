@@ -1,67 +1,59 @@
-const express = require("express");
-const mysql = require("mysql");
-const cors = require("cors");
-const Connection = require("mysql/lib/Connection");
+const express = require("express")
+const cors = require("cors")
 
-const app = express(); // creamos la instancia express
+const app= express()
+const PORT= 3000;
 
 
-//middlewares 
-app.use(express.json());
-app.use(cors()); // intercomunicar tecnologias 
-
-///iniciamos el servidor
-const PORT = 3000;
-z
+app.use(cors())
+app.use(express.json())
 app.listen(PORT, ()=>{
-    console.log(`servidor creado en el puerto ${PORT}`)
+    console.log(`Servidor creado en http://localhost:${PORT}`)
 })
-const conexion = mysql.createConnection({
-    host:"localhost",
-    user:"root",
-    password: "cuilmas23F",
-    port:3306,
-    database: "topicos"
-});
 
-conexion.connect((err)=>{
-    if(err){
-        console.error(err.message || "no se puede conectar a la base de datos");
-    }else{ 
-        console.log("conectado a la base de datos")
+
+let listTask= []
+app.get('/listTask', (req, res)=>{
+    console.log('Tareas: ', listTask)
+    if(listTask.length === 0){
+        return res.json({message: 'No hay tareas'})
+    }
+    res.json(listTask)
+})
+
+
+app.post('/addTask', (req, res)=>{
+    const {task,id}= req.body
+    console.log(task,id)
+    
+    if(!task){
+        res.status(400).json({message: 'No se ha enviado la tarea'})
     }
 
+    listTask= [...listTask, {task,id}]
+    console.log(listTask)
+    res.json({message: 'Tarea agregada', tarea: task, id: id})
 });
-
-app.get("/listTask",(req,res)=>{
-    conexion.query("SELECT * FROM usuarios",(error,results)=>{
-        if(error) res.status(500).json({message: error.message || "no se pueden obtener datos en este momento para la tabla usuarios "});
-        else res.status(200).json(results);
-    });
+app.delete('/deleteTask', (req, res)=>{
+    listTask= []
+    res.json({message: 'Tareas eliminadas'})
 });
-//agregar usuario
-app.post("/addNom",(req,res)=>{
-    const {nombre} = req.body;
-    conexion.query('INSERT INTO usuarios(nombre) VALUES("'+nombre+'")',(error,results)=>{
-        if (error) res.status(500).json({message:error.message || "no se pudo agregar en este momento"});
-        else res.json(results);
-    });
-});
-
-
-app.patch("/EditNom",(req,res)=>{
-const {id,nombre} = req.body;
-conexion.query('UPDATE usuarios SET nombre="'+nombre+'" WHERE id='+id,(error,results)=>{
-    if (error) res.status(500).json({message:error.message || "no se pudo actualizar en este momento"});
-        else res.json(results);
-    });
-});
-//eliminar
-app.delete("/",(req,res)=>{
-    const {id} =req.body;
-    conexion.query('DELETE FROM usuarios WHERE id='+id,(error,results)=>{
-        if (error) res.status(500).json({message:error.message || "no se pudo eliminar en este momento"});
-        else res.json(results);
+app.put('/editTask/:id', (req, res)=>{
+    const {id}= req.params
+    const {task}= req.body
+    console.log(id, task)
+    listTask= listTask.map((tarea)=>{
+        if(tarea.id === id){
+            tarea.task= task
+        }
+        return tarea
     })
+    res.json({message: 'Tarea actualizada'})
+});
+app.delete('/getTask/:id', (req, res)=>{
+    const {id}= req.params
+    console.log(id)
+    listTask= listTask.filter((tarea)=> tarea.id !== id)
+    res.json({message: 'Tarea eliminada'})
+});
 
-})

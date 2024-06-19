@@ -111,8 +111,8 @@ editTask.addEventListener('click', async (e) => {
     await actualizardata(e);
     msg.innerHTML= "Tarea actualizada";
 })
-//eliminar tarea por id
-/*const deleteTaskId= document.getElementById('deleteTaskId');
+
+const deleteTaskId= document.getElementById('getTask');
 deleteTaskId.addEventListener('click', async (e) => {
     e.preventDefault();
     const id= document.getElementById('id').value;
@@ -121,7 +121,7 @@ deleteTaskId.addEventListener('click', async (e) => {
         msg.innerHTML= 'No se ha enviado el id';
         return;
     }
-    const URLDelete= `http://localhost:3000/deleteTask/${id}`;
+    const URLDelete= `http://localhost:3000/getTask/${id}`;
     const DeleteTarea= await fetch(URLDelete, {
         method: 'DELETE',
         body: JSON.stringify(data),
@@ -135,4 +135,3 @@ deleteTaskId.addEventListener('click', async (e) => {
     msg.innerHTML= "Tarea eliminada";
     
 })
-*/
